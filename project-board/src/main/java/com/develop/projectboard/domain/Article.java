@@ -2,6 +2,7 @@ package com.develop.projectboard.domain;
 
 import java.time.LocalDateTime;
 
+
 public class Article {
 
     private Long id;

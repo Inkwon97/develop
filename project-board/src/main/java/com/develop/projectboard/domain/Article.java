@@ -10,7 +10,9 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Set;
 
 
 @Getter
@@ -24,35 +26,31 @@ import java.util.Objects;
 @Entity
 public class Article {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Setter
-    @Column(nullable = false)
+    @Setter @Column(nullable = false)
     private String title; // 제목
 
-    @Setter
-    @Column(nullable = false, length = 10000)
+    @Setter @Column(nullable = false, length = 10000)
     private String content; // 내용
 
     @Setter
     private String hashtag; // 해시태그
 
-    @CreatedDate
-    @Column(nullable = false)
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL) @OrderBy("id") @ToString.Exclude
+    private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
+
+    @CreatedDate @Column(nullable = false)
     private LocalDateTime createdAt; // 생성일시
 
-    @CreatedBy
-    @Column(nullable = false, length = 100)
+    @CreatedBy @Column(nullable = false, length = 100)
     private String createdBy; // 생성자
 
-    @LastModifiedDate
-    @Column(nullable = false)
+    @LastModifiedDate @Column(nullable = false)
     private LocalDateTime modifiedAt; // 수정일시
 
-    @LastModifiedBy
-    @Column(nullable = false, length = 100)
+    @LastModifiedBy @Column(nullable = false, length = 100)
     private String modifiedBy; // 수정자
 
     protected Article() {

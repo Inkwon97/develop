@@ -221,8 +221,14 @@ gradle-app.setting
 *.hprof
 
 # custom
-../wrapper
-../caches
-../native
+
+/caches
+/daemon
+/native
+/wrapper
+/project-board/caches
+/project-board/daemon
+/project-board/native
+/project-board/wrapper
 
 # End of https://www.toptal.com/developers/gitignore/api/java,gradle,intellij+all,windows,macos,visualstudiocode

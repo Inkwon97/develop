@@ -223,5 +223,6 @@ gradle-app.setting
 # custom
 ###querydsl
 src/main/generated
+.tmp
 
 # End of https://www.toptal.com/developers/gitignore/api/java,gradle,intellij+all,windows,macos,visualstudiocode

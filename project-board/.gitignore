@@ -221,8 +221,7 @@ gradle-app.setting
 *.hprof
 
 # custom
-../wrapper
-../caches
-../native
+###querydsl
+src/main/generated
 
 # End of https://www.toptal.com/developers/gitignore/api/java,gradle,intellij+all,windows,macos,visualstudiocode

@@ -1,5 +1,6 @@
 package com.develop.projectboard.dto.response;
 
+
 import com.develop.projectboard.dto.ArticleWithCommentsDto;
 
 import java.io.Serializable;

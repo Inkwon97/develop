@@ -1,5 +1,6 @@
 package com.develop.projectboard.dto;
 
+
 import com.develop.projectboard.domain.Article;
 import com.develop.projectboard.domain.ArticleComment;
 

@@ -7,7 +7,6 @@ import com.develop.projectboard.dto.ArticleCommentDto;
 import com.develop.projectboard.dto.UserAccountDto;
 import com.develop.projectboard.repository.ArticleCommentRepository;
 import com.develop.projectboard.repository.ArticleRepository;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,7 +22,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.*;
 
-@Disabled
 @DisplayName("비즈니스 로직 - 댓글")
 @ExtendWith(MockitoExtension.class)
 class ArticleCommentServiceTest {

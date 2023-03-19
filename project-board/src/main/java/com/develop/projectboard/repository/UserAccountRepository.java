@@ -1,6 +1,5 @@
 package com.develop.projectboard.repository;
 
-
 import com.develop.projectboard.domain.UserAccount;
 import org.springframework.data.jpa.repository.JpaRepository;
 

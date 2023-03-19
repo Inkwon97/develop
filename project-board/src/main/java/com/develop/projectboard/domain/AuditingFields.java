@@ -1,5 +1,6 @@
 package com.develop.projectboard.domain;
 
+import lombok.Getter;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -13,10 +14,11 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
-@EntityListeners(AuditingEntityListener.class)
+@Getter
 @ToString
+@EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass
-public class AuditingField {
+public abstract class AuditingFields {
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @CreatedDate
@@ -37,4 +39,3 @@ public class AuditingField {
     private String modifiedBy; // 수정자
 
 }
-

@@ -31,7 +31,6 @@ public class ThymeleafConfig {
          * Use Thymeleaf 3 Decoupled Logic
          */
         private final boolean decoupledLogic;
-
     }
 
 }

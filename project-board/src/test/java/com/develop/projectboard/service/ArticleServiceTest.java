@@ -44,6 +44,8 @@ class ArticleServiceTest {
         // When
         Page<ArticleDto> articles = sut.searchArticles(null, null, pageable);
 
+        
+
         // Then
         assertThat(articles).isEmpty();
         then(articleRepository).should().findAll(pageable);
@@ -57,6 +59,8 @@ class ArticleServiceTest {
         String searchKeyword = "title";
         Pageable pageable = Pageable.ofSize(20);
         given(articleRepository.findByTitleContaining(searchKeyword, pageable)).willReturn(Page.empty());
+
+
 
         // When
         Page<ArticleDto> articles = sut.searchArticles(searchType, searchKeyword, pageable);

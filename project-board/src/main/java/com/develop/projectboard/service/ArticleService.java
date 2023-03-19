@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.Optional;
+import java.util.List;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -43,7 +43,6 @@ public class ArticleService {
         return articleRepository.findById(articleId)
                 .map(ArticleWithCommentsDto::from)
                 .orElseThrow(() -> new EntityNotFoundException("게시글이 없습니다 - articleId: " + articleId));
-
     }
 
     public void saveArticle(ArticleDto dto) {
@@ -53,19 +52,29 @@ public class ArticleService {
     public void updateArticle(ArticleDto dto) {
         try {
             Article article = articleRepository.getReferenceById(dto.id());
-            if (dto.title() != null) {
-                article.setTitle(dto.title());
-            }
-            if (dto.content() != null) {
-                article.setContent(dto.content());
-            }
+            if (dto.title() != null) { article.setTitle(dto.title()); }
+            if (dto.content() != null) { article.setContent(dto.content()); }
             article.setHashtag(dto.hashtag());
         } catch (EntityNotFoundException e) {
-            log.warn("게시글 업데이트 실패. 게시글을 찾을 수 없습니다 - dto: {}" , dto);
+            log.warn("게시글 업데이트 실패. 게시글을 찾을 수 없습니다 - dto: {}", dto);
         }
     }
 
     public void deleteArticle(long articleId) {
         articleRepository.deleteById(articleId);
     }
+
+    public long getArticleCount() {
+        return articleRepository.count();
+    }
+
+    @Transactional(readOnly = true)
+    public Page<ArticleDto> searchArticlesViaHashtag(String hashtag, Pageable pageable) {
+        if (hashtag == null || hashtag.isBlank()) {
+            return Page.empty(pageable);
+        }
+
+        return articleRepository.findByHashtag(hashtag, pageable).map(ArticleDto::from);
+    }
+
 }

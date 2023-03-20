@@ -2,6 +2,8 @@ package com.develop.projectboard.controller;
 
 import com.develop.projectboard.config.SecurityConfig;
 import com.develop.projectboard.domain.type.SearchType;
+import com.develop.projectboard.dto.ArticleWithCommentsDto;
+import com.develop.projectboard.dto.UserAccountDto;
 import com.develop.projectboard.service.ArticleService;
 import com.develop.projectboard.service.PaginationService;
 import org.junit.jupiter.api.Disabled;

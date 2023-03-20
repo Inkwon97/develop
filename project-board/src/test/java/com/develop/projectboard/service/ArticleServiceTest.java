@@ -1,5 +1,12 @@
 package com.develop.projectboard.service;
 
+import com.develop.projectboard.domain.Article;
+import com.develop.projectboard.domain.UserAccount;
+import com.develop.projectboard.domain.type.SearchType;
+import com.develop.projectboard.dto.ArticleDto;
+import com.develop.projectboard.dto.ArticleWithCommentsDto;
+import com.develop.projectboard.dto.UserAccountDto;
+import com.develop.projectboard.repository.ArticleRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
